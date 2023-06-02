@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  width: 210px;
+  flex-direction: column;
+  border: 1px solid grey;
+}
+.cardHeader {
+  display: flex;
+  margin: 4px 10px;
+}
+.cardMain {
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 900;
+}
+.dayCol {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid grey;
+  justify-content: space-around;
+}
+.day {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
