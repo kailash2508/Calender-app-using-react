@@ -8,6 +8,7 @@ export default function App() {
   const [mon, setMon] = useState(d.getMonth());
   const [year, setYear] = useState(d.getFullYear());
   const [d0, setD0] = useState();
+  const [c, setC] = useState();
   useEffect(() => {
     const d1 = [];
     const d2 = [];
@@ -16,10 +17,18 @@ export default function App() {
     const d5 = [];
     const d6 = [];
     const d7 = [];
-    const days = new Date(year, mon - 1, 0).getDate();
+    const days = new Date(year, mon + 1, 0).getDate();
     for (let i = 0; i < days; i++) {
       let x = new Date('' + year + '-' + (mon + 1) + '-' + (i + 1)).getDay();
-      if (x === 0) {
+      if (x === 0 && i === 0) {
+        d2.push(0);
+        d3.push(0);
+        d4.push(0);
+        d5.push(0);
+        d6.push(0);
+        d7.push(0);
+        d1.push(i + 1);
+      } else if (x === 0) {
         d1.push(i + 1);
       } else if (x === 1) {
         d2.push(i + 1);
@@ -60,15 +69,77 @@ export default function App() {
         d7.push(i + 1);
       }
     }
-    const a = d1.map((val) => <p id={val}>{val}</p>);
-    const b = d2.map((val) => <p id={val}>{val}</p>);
-    const c = d3.map((val) => <p id={val}>{val}</p>);
-    const e = d4.map((val) => <p id={val}>{val}</p>);
-    const f = d5.map((val) => <p id={val}>{val}</p>);
-    const g = d6.map((val) => <p id={val}>{val}</p>);
-    const h = d7.map((val) => <p id={val}>{val}</p>);
+    const a = d1.map((val) => (
+      <p
+        id={val}
+        style={{ color: val === date ? 'red' : 'black' }}
+        onClick={(e) => changeColor(e)}
+      >
+        {val}
+      </p>
+    ));
+    const b = d2.map((val) => (
+      <p
+        id={val}
+        style={{ color: val === date ? 'red' : 'black' }}
+        onClick={(e) => changeColor(e)}
+      >
+        {val}
+      </p>
+    ));
+    const c = d3.map((val) => (
+      <p
+        id={val}
+        style={{ color: val === date ? 'red' : 'black' }}
+        onClick={(e) => changeColor(e)}
+      >
+        {val}
+      </p>
+    ));
+    const e = d4.map((val) => (
+      <p
+        id={val}
+        style={{ color: val === date ? 'red' : 'black' }}
+        onClick={(e) => changeColor(e)}
+      >
+        {val}
+      </p>
+    ));
+    const f = d5.map((val) => (
+      <p
+        id={val}
+        style={{ color: val === date ? 'red' : 'black' }}
+        onClick={(e) => changeColor(e)}
+      >
+        {val}
+      </p>
+    ));
+    const g = d6.map((val) => (
+      <p
+        id={val}
+        style={{ color: val === date ? 'red' : 'black' }}
+        onClick={(e) => changeColor(e)}
+      >
+        {val}
+      </p>
+    ));
+    const h = d7.map((val) => (
+      <p
+        id={val}
+        style={{ color: val === date ? 'red' : 'black' }}
+        onClick={(e) => changeColor(e)}
+      >
+        {val}
+      </p>
+    ));
     setD0([a, b, c, e, f, g, h]);
   }, [mon, year]);
+  function changeColor(e) {
+    for (let i = 0; i <= new Date(year, mon + 1, 0).getDate(); i++) {
+      document.getElementById(i).style.border = 'initial';
+    }
+    document.getElementById(e.target.innerHTML).style.border = '2px solid grey';
+  }
   console.log(d0);
   const months = [
     'January',
@@ -86,17 +157,37 @@ export default function App() {
   ];
   function decYear() {
     setYear((pre) => pre - 1);
+    if (mon === d.getMonth() && year === d.getFullYear()) {
+      setDate(d.getDate());
+    } else {
+      setDate(32);
+    }
   }
   function incYear() {
     setYear((pre) => pre + 1);
+    if (mon === d.getMonth() && year === d.getFullYear()) {
+      setDate(d.getDate());
+    } else {
+      setDate(32);
+    }
   }
   function decMon() {
     setMon((pre) => (pre > 0 ? pre : setYear(year - 1)));
     setMon((pre) => (pre > 0 ? pre - 1 : 11));
+    if (mon === d.getMonth() && year === d.getFullYear()) {
+      setDate(d.getDate());
+    } else {
+      setDate(32);
+    }
   }
   function incMon() {
     setMon((pre) => (pre < 11 ? pre : setYear(year + 1)));
     setMon((pre) => (pre < 11 ? pre + 1 : 0));
+    if (mon === d.getMonth() && year === d.getFullYear()) {
+      setDate(d.getDate());
+    } else {
+      setDate(32);
+    }
   }
   return (
     <div className="card">
