@@ -75,7 +75,7 @@ export default function App() {
         style={{ color: val === date ? 'red' : 'black' }}
         onClick={(e) => changeColor(e)}
       >
-        {val}
+        {val === 0 ? <>&nbsp;</> : val}
       </p>
     ));
     const b = d2.map((val) => (
@@ -84,7 +84,7 @@ export default function App() {
         style={{ color: val === date ? 'red' : 'black' }}
         onClick={(e) => changeColor(e)}
       >
-        {val}
+        {val === 0 ? <>&nbsp;</> : val}
       </p>
     ));
     const c = d3.map((val) => (
@@ -93,7 +93,7 @@ export default function App() {
         style={{ color: val === date ? 'red' : 'black' }}
         onClick={(e) => changeColor(e)}
       >
-        {val}
+        {val === 0 ? <>&nbsp;</> : val}
       </p>
     ));
     const e = d4.map((val) => (
@@ -102,7 +102,7 @@ export default function App() {
         style={{ color: val === date ? 'red' : 'black' }}
         onClick={(e) => changeColor(e)}
       >
-        {val}
+        {val === 0 ? <>&nbsp;</> : val}
       </p>
     ));
     const f = d5.map((val) => (
@@ -111,7 +111,7 @@ export default function App() {
         style={{ color: val === date ? 'red' : 'black' }}
         onClick={(e) => changeColor(e)}
       >
-        {val}
+        {val === 0 ? <>&nbsp;</> : val}
       </p>
     ));
     const g = d6.map((val) => (
@@ -120,7 +120,7 @@ export default function App() {
         style={{ color: val === date ? 'red' : 'black' }}
         onClick={(e) => changeColor(e)}
       >
-        {val}
+        {val === 0 ? <>&nbsp;</> : val}
       </p>
     ));
     const h = d7.map((val) => (
@@ -129,7 +129,7 @@ export default function App() {
         style={{ color: val === date ? 'red' : 'black' }}
         onClick={(e) => changeColor(e)}
       >
-        {val}
+        {val === 0 ? <>&nbsp;</> : val}
       </p>
     ));
     setD0([a, b, c, e, f, g, h]);
