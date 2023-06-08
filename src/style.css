@@ -1,17 +1,30 @@
+* {
+  font-size: larger;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .card {
   display: flex;
-  width: 210px;
+  width: 60vw;
+  min-width: 1000px;
   flex-direction: column;
   border: 1px solid grey;
   margin: auto;
+  background-color: rgb(37, 37, 37);
+  color: aliceblue;
+  padding: 10px;
 }
 .cardHeader {
   display: flex;
-  margin: 4px 10px;
+  /* margin: 4px 10px; */
+  justify-content: space-around;
 }
 .cardMain {
-  margin-left: auto;
-  margin-right: auto;
   font-weight: 900;
 }
 .dayCol {
@@ -24,4 +37,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.calender-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 50px;
+  row-gap: 50px;
+}
+.calenderDays {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 10px;
+  cursor: default;
+}
+
+.dark-border {
+  border: 2px solid rgb(37, 37, 37);
+}
+
+.light-border {
+  border: 2px solid blue;
+}
+
+.prevMonth {
+  color: grey;
 }
